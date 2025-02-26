@@ -5,6 +5,7 @@
 
 #Note LINEAR SEARCH for unsorted data && when the expected output is in the original order
 #Note BINASRY SEARCH for sorted data && when the origianl order does not matter to the output
+
 #PLAN
 # USING LINEAR SEARCH FOR MY SOLUTION
 #Loop through each elem and compare to target
@@ -127,20 +128,6 @@ print (non_decreasing(nums))
 #That is, no element of clues is included in any of the ranges, and each missing number is covered by
 #one of the ranges.
 
-#INPUT
-#clues = [0, 1, 3, 50, 75]
-#lower = 0
-#upper = 99
-#find_missing_clues(clues, lower, upper)
-#clues = [-1]
-#lower = -1
-#upper = -1
-#find_missing_clues(clues, lower, upper)
-
-#OUTPUT
-#[[2, 2], [4, 49], [51, 74], [76, 99]]
-#[]
-
 #PLAN
 #function takes (arr, lower, upper)
 #sort arr
@@ -149,6 +136,7 @@ print (non_decreasing(nums))
 #I will subtract, second - first = 1 means there's no jump in between, else first++ and --second
 #append the arr [first, second]
 
+'''
 def find_missing_clues(clues, lower, upper):
     clues.sort()
     result = []
@@ -156,8 +144,7 @@ def find_missing_clues(clues, lower, upper):
         return result
     for i in range(len(clues) - 1):
         first = clues[i]
-        second = clues[i+1]
-       
+        second = clues[i+1]   
         if (second - first) > 1:
             first += 1
             second -= 1
@@ -175,3 +162,25 @@ clues = [-1]
 lower = -1
 upper = -1
 print (find_missing_clues(clues, lower, upper))
+'''
+
+#Rabbit is collecting carrots from his garden to make a feast for Pooh and friends.
+#Write a function harvest() that accepts a 2D n x m matrix vegetable_patch and returns the number of of carrots that
+#are ready to harvest in the vegetable patch. A carrot is ready to harvest if vegetable_patch[i][j] has value 'c'.
+#Assume n = len(vegetable_patch) and m = len(vegetable_patch[0]). 0 <= i < n and 0 <= j < m.
+
+#PLAN
+
+def can_place_flowers(flowerbed, n):
+    # Write your code here
+    count = 0
+    for elem in flowerbed:
+        if elem == 0:
+            count += 1
+    if round(count/n) >= 3:
+        return True
+    return False
+
+flowerbed = [1,0,0,0,0,0,1]
+n = 1
+print (can_place_flowers(flowerbed, n))
