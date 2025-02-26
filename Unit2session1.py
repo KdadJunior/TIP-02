@@ -57,6 +57,18 @@ def find_duplicate_chests(chests):
             chest_dict[num] = 1
     return duplicates_arr
 
+#ANOTHER OPTIMAL SOLUTION
+
+def find_duplicate_chests(chests):
+    seen = set()
+    duplicates = set()
+    for num in chests:
+        if num in seen:
+            duplicates.add(num)
+        else:
+            seen.add(num)
+    return list(duplicates)
+
 chests1 = [4, 3, 2, 7, 8, 2, 3, 1]
 chests2 = [1, 1, 2]
 chests3 = [1]
