@@ -3,13 +3,28 @@
 #Add up the values and return
 
 '''
-def total_treasure(treasure_map):
+def total_treasures(treasure_map):
     total = 0
-    for num in treasure_map.values()
+    for num in treasure_map.values():
         total += num
     return total
-'''
 
+treasure_map1 = {
+    "Cove": 3,
+    "Beach": 7,
+    "Forest": 5
+}
+
+treasure_map2 = {
+    "Shipwreck": 10,
+    "Cave": 20,
+    "Lagoon": 15,
+    "Island Peak": 5
+}
+
+print(total_treasures(treasure_map1)) 
+print(total_treasures(treasure_map2)) 
+'''
 
 #PLAN
 #Create an empty dictionary 
@@ -117,3 +132,60 @@ code2 = "haha"
 print(is_balanced(code1)) 
 print(is_balanced(code2))
 '''
+
+#PLAN
+#Create an empty dictionary
+#loop through list "gold_amount"
+#Anytime I loop, I find the complement
+#If complement is in dictionary, it means (complement + num = target)
+#return [dictionary[complenent], index of num]
+#When there's no match return []
+
+'''
+def find_treasure_indices(gold_amounts, target):
+    seen_dict = {}
+    for i, num in enumerate(gold_amounts):
+        complement = target - num
+        if complement in seen_dict:
+            return [seen_dict[complement], i]
+        seen_dict[num] = i
+    return []
+
+gold_amounts1 = [2, 7, 11, 15]
+target1 = 9
+
+gold_amounts2 = [3, 2, 4]
+target2 = 6
+
+gold_amounts3 = [3, 3]
+target3 = 6
+
+print(find_treasure_indices(gold_amounts1, target1))  
+print(find_treasure_indices(gold_amounts2, target2))  
+print(find_treasure_indices(gold_amounts3, target3))
+'''
+
+#PLAN
+
+
+def organize_pirate_crew(group_sizes):
+    from collections import defaultdict
+
+    #Grouping pirates by their required group size
+    dd = defaultdict(list)
+    for pirate_id, size in enumerate(group_sizes):
+        dd[size].append(pirate_id)
+    
+    #Form groups of the required size
+    result = []
+    for size, pirate_lst in dd.items():
+        for i in range(0, len(pirate_lst), size):
+            result.append(pirate_lst[i:i+size])
+
+    return result
+
+group_sizes1 = [3, 3, 3, 3, 3, 1, 3]
+group_sizes2 = [2, 1, 3, 3, 3, 2]
+
+print(organize_pirate_crew(group_sizes1))
+print(organize_pirate_crew(group_sizes2)) 
