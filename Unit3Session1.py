@@ -12,7 +12,7 @@ def arrange_guest_arrival_order(arrival_pattern):
   temp_guest_order = [1,2,3,4,5,6,7,8,9]
   stack = []
   guest_order = []
-
+#guest_order[len(arriva)]
   for i, ch in enumerate(arrival_pattern):
     if ch == 'I':
       guest_order.append(str(temp_guest_order[i]))
@@ -21,10 +21,10 @@ def arrange_guest_arrival_order(arrival_pattern):
         guest_order.append(str(value))
     elif ch == 'D':
       stack.append(str(temp_guest_order[i]))
-    
+  stack.append(str(len(temp_guest_order)))
   while stack:
     value = stack.pop()
-    guest_order.append(str(value)) 
+    guest_order.append(str(value))
     
     return ''.join(guest_order)
   

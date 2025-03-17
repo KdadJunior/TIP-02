@@ -166,8 +166,12 @@ print(find_treasure_indices(gold_amounts3, target3))
 '''
 
 #PLAN
+#import defaultdict
+#loop through list "group_sizes" and have num as key and index as value in the defaultdict
+#loop through defaultdict to cut the values into chunks according to size. Use slicing and store in list "result"
+#return result 
 
-
+'''
 def organize_pirate_crew(group_sizes):
     from collections import defaultdict
 
@@ -188,4 +192,5 @@ group_sizes1 = [3, 3, 3, 3, 3, 1, 3]
 group_sizes2 = [2, 1, 3, 3, 3, 2]
 
 print(organize_pirate_crew(group_sizes1))
-print(organize_pirate_crew(group_sizes2)) 
+print(organize_pirate_crew(group_sizes2))
+'''
