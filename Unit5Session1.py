@@ -20,8 +20,8 @@ def of_personality_type(townies, personality_type):
 
 
 
-def message_received(start_villager, target_villager):
-    ptr = start_villager
-    for vil in 
+# def message_received(start_villager, target_villager):
+#     ptr = start_villager
+#     for vil in 
 
 
