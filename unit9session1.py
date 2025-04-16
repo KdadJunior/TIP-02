@@ -107,23 +107,71 @@
 #                     Puff("Strawberry"))
 # print_design(croquembouche)
 
-class TreeNode():
-     def __init__(self, value, left=None, right=None):
-        self.val = value
-        self.left = left
-        self.right = right
+# class TreeNode():
+#      def __init__(self, value, left=None, right=None):
+#         self.val = value
+#         self.left = left
+#         self.right = right
 
-def max_tiers(cake):
-    # if not cake:
-    #     return 0
+# def max_tiers(cake):
+#     # if not cake:
+#     #     return 0
     
-    left_height = max_tiers(cake.left)
-    print(left_height)
-    right_height = max_tiers(cake.right)
+#     left_height = max_tiers(cake.left)
+#     print(left_height)
+#     right_height = max_tiers(cake.right)
 
-    return 1 + max(left_height, right_height)
+#     return 1 + max(left_height, right_height)
 
-cake_sections = ["Chocolate", "Vanilla", "Strawberry", None, None, "Chocolate", "Coffee"]
-cake = build_tree(cake_sections)
+# cake_sections = ["Chocolate", "Vanilla", "Strawberry", None, None, "Chocolate", "Coffee"]
+# cake = build_tree(cake_sections)
 
-print(max_tiers(cake))
+# print(max_tiers(cake))
+
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+# Traversals
+def in_order(root):
+    if root:
+        in_order(root.left)
+        print(root.value, end=' ')
+        in_order(root.right)
+
+def pre_order(root):
+    if root:
+        print(root.value, end=' ')
+        pre_order(root.left)
+        pre_order(root.right)
+
+def post_order(root):
+    if root:
+        post_order(root.left)
+        post_order(root.right)
+        print(root.value, end=' ')
+
+# Example tree:
+#       1
+#      / \
+#     2   3
+#    / \
+#   4   5
+
+root = Node(1)
+root.left = Node(2)
+root.right = Node(3)
+root.left.left = Node(4)
+root.left.right = Node(5)
+
+print("In-order Traversal: ")
+in_order(root)        # Output: 4 2 5 1 3
+
+print("\nPre-order Traversal: ")
+pre_order(root)       # Output: 1 2 4 5 3
+
+print("\nPost-order Traversal: ")
+post_order(root)      # Output: 4 5 2 3 1
